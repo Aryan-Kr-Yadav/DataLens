@@ -750,6 +750,10 @@ RAG may be useful later if DataLens supports unstructured files such as PDFs or 
 
 https://github.com/Aryan-Kr-Yadav/DataLens
 
+## Live project 
+
+https://datalensss.netlify.app/
+
 ---
 
 ## License
