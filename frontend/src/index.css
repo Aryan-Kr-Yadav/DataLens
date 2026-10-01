@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root, .dark {
+  --bg-primary: #09090B;
+  --bg-surface: #111113;
+  --bg-surface-elevated: #18181B;
+  --bg-surface-hover: #1F1F23;
+  
+  --border-subtle: #27272A;
+  --border-strong: #3F3F46;
+  
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  
+  --brand-accent: #7C6CF6;
+  --brand-accent-hover: #8B7CF8;
+  
+  --status-success: #22C55E;
+  --status-warning: #F59E0B;
+  --status-error: #EF4444;
+  --status-info: #3B82F6;
+}
+
+.light {
+  --bg-primary: #F8F9FB;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-surface-hover: #F4F4F5;
+  
+  --border-subtle: #E4E4E7;
+  --border-strong: #D4D4D8;
+  
+  --text-primary: #18181B;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  
+  --brand-accent: #6759E8;
+  --brand-accent-hover: #5747D9;
+  
+  --status-success: #16A34A;
+  --status-warning: #D97706;
+  --status-error: #DC2626;
+  --status-info: #2563EB;
+}
+
+@theme {
+  --color-background: var(--bg-primary);
+  --color-surface: var(--bg-surface);
+  --color-raised: var(--bg-surface-elevated);
+  --color-card: var(--bg-surface-elevated);
+  --color-secondary-card: var(--bg-surface-hover);
+  --color-hover: var(--bg-surface-hover);
+  
+  --color-border: var(--border-subtle);
+  --color-strong-border: var(--border-strong);
+  
+  --color-text: var(--text-primary);
+  --color-secondary-text: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  
+  --color-accent: var(--brand-accent);
+  --color-accent-hover: var(--brand-accent-hover);
+  
+  --color-success: var(--status-success);
+  --color-warning: var(--status-warning);
+  --color-error: var(--status-error);
+  --color-info: var(--status-info);
+  
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
