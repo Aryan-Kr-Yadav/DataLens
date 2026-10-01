@@ -1,18 +1,20 @@
-
 # Environment secrets
 .env
+.env.*
 *.env
+**/.env
+**/.env.*
 backend/.env
+backend/.env.*
 
-# Environment secrets
-.env
-*.env
-backend/.env
-
-.env
-*.env
-backend/.env
+# Dependency directories
 node_modules/
 frontend/node_modules/
 venv/
+
+# Python caches
 __pycache__/
+
+# Local generated data / uploaded datasets
+backend/storage/
+backend/storage/datasets/*.csv
