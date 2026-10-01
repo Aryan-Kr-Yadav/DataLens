@@ -8,7 +8,7 @@ from services.llm_service import LLMService
 # question to Groq and receives a Pandas expression.
 # ============================================================
 
-SYSTEM_PROMPT = """You are the Pandas query generator for DataLens AI.
+SYSTEM_PROMPT = """You are the Pandas query generator for DataLens.
 You DO NOT have access to the actual dataset.
 You only receive schema information.
 Do not calculate answers.

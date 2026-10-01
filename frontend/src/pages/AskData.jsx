@@ -260,7 +260,7 @@ export default function AskData() {
             </button>
           </form>
           <div className="text-center mt-2 text-[11px] text-muted font-medium">
-            DataLens AI can make mistakes. Please verify important calculations.
+            DataLens can make mistakes. Please verify important calculations.
           </div>
         </div>
       </div>

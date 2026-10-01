@@ -39,7 +39,7 @@ export default function Sidebar() {
         {!collapsed && (
           <div className="flex items-center space-x-2 overflow-hidden">
             <div className="w-6 h-6 rounded bg-accent flex items-center justify-center font-bold text-white text-xs shrink-0">D</div>
-            <span className="font-bold text-[15px] text-text truncate">DataLens AI</span>
+            <span className="font-bold text-[15px] text-text truncate">DataLens</span>
           </div>
         )}
         <button 

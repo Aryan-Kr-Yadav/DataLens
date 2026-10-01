@@ -9,9 +9,9 @@ export default function Privacy() {
         <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-success/5">
           <Shield className="w-8 h-8 text-success" />
         </div>
-        <h1 className="text-3xl font-extrabold text-text mb-4 tracking-tight">Privacy by Design</h1>
-        <p className="text-muted text-lg max-w-xl mx-auto">
-          Your CSV remains local. We execute generated code securely on your machine and never send raw data to an LLM.
+        <h1 className="text-3xl font-extrabold text-text mb-4 tracking-tight">How DataLens handles your data</h1>
+        <p className="text-muted text-base max-w-2xl mx-auto leading-relaxed">
+          Your raw dataset remains local. DataLens sends only the schema information you approve and your question to the configured AI service.
         </p>
       </div>
 

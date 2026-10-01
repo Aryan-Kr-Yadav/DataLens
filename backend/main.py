@@ -12,7 +12,7 @@ load_dotenv()
 # ============================================================
 
 app = FastAPI(
-    title="DataLens AI API",
+    title="DataLens API",
     description="Privacy-first conversational data-analysis application",
     version="1.0.0"
 )
@@ -30,7 +30,7 @@ def health_check():
     """
     Check if the API is running.
     """
-    return {"status": "ok", "message": "DataLens AI Backend is running"}
+    return {"status": "ok", "message": "DataLens Backend is running"}
 
 from api.datasets import router as datasets_router
 from api.analysis import router as analysis_router

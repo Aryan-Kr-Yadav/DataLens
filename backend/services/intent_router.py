@@ -14,7 +14,7 @@ class IntentRouter:
         - GENERAL_CHAT: Basic conversational greetings (Hello, thanks).
         """
         llm = LLMService()
-        system_prompt = """You are an intent classifier for DataLens AI.
+        system_prompt = """You are an intent classifier for DataLens.
 Classify the following user message into exactly one of these categories:
 - DATASET_ANALYSIS: The user wants to calculate, filter, sort, chart, or analyze the actual CSV data (e.g., 'What is the average sales?', 'Show top 5 products').
 - DATASET_INFORMATION: The user is asking about the dataset structure or metadata (e.g., 'How many rows?', 'What columns are there?', 'Any missing values?').

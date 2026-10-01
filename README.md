@@ -1,16 +1,16 @@
-# DataLens AI
+# DataLens
 
 **Conversational Data Analysis Assistant — Natural-language Q&A over CSV datasets**
 
-DataLens AI is a privacy-first analytics application that lets users explore CSV datasets using natural-language questions instead of writing Pandas or SQL manually.
+DataLens is a privacy-first conversational data analysis platform that allows users to analyze CSV datasets using natural-language questions. It uses an LLM to generate Pandas analysis logic, validates the generated query for safety, and executes it locally on the dataset to produce verified answers, visualizations, data-quality insights, and reports.
 
-> **The LLM understands the question and generates the Pandas analysis logic, while Pandas executes the analysis locally on the actual dataset.**
+> **DataLens converts natural-language questions into validated Pandas analysis and executes them locally on CSV datasets to produce verified results.**
 
 ---
 
 ## Overview
 
-DataLens AI allows users to:
+DataLens allows users to:
 
 - Upload CSV datasets
 - Load CSV files from a local backend folder
@@ -732,7 +732,7 @@ RAG may be useful later if DataLens supports unstructured files such as PDFs or 
 
 ## One-Line Explanation
 
-> **DataLens AI converts natural-language questions into validated Pandas analysis, executes the analysis locally on CSV data, and returns verified results without sending the complete dataset to the LLM.**
+> **DataLens converts natural-language questions into validated Pandas analysis, executes the analysis locally on CSV data, and returns verified results without sending the complete dataset to the LLM.**
 
 ---
 

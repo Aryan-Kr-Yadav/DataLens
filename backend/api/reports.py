@@ -20,7 +20,7 @@ class ReportConfig(BaseModel):
 async def generate_report(dataset_id: str, config: Optional[ReportConfig] = Body(default=None)):
     """
     Generates a theme-aware HTML report for the dataset based on local Pandas calculations.
-    Seamlessly adapts to system dark/light mode and matches DataLens AI design aesthetics.
+    Seamlessly adapts to system dark/light mode and matches DataLens design aesthetics.
     """
     try:
         if config is None:
@@ -95,7 +95,7 @@ async def generate_report(dataset_id: str, config: Optional[ReportConfig] = Body
                 </div>
                 <div class="card p-5">
                     <p class="summary-text">
-                        This automated audit was generated locally by <strong>DataLens AI</strong>. The dataset consists of <strong>{rows:,}</strong> records distributed across <strong>{cols}</strong> attributes, encompassing a total of <strong>{total_cells:,}</strong> observed cells.
+                        This automated audit was generated locally by <strong>DataLens</strong>. The dataset consists of <strong>{rows:,}</strong> records distributed across <strong>{cols}</strong> attributes, encompassing a total of <strong>{total_cells:,}</strong> observed cells.
                         The dataset exhibits an overall null rate of <strong>{missing_pct}%</strong> with <strong>{duplicate_rows}</strong> duplicate rows detected.
                         {"All features have populated records without missing values." if missing_count == 0 else f"A total of {missing_count:,} missing values were detected and cataloged in the quality section below."}
                     </p>
@@ -290,7 +290,7 @@ async def generate_report(dataset_id: str, config: Optional[ReportConfig] = Body
                     <div>
                         <h3 class="privacy-title">Local Privacy & Processing Guarantee</h3>
                         <p class="privacy-desc">
-                            Generated natively via DataLens AI local engine using Pandas analytical routines. Raw CSV row data is never uploaded or transferred to third-party language models.
+                            Generated natively via DataLens local engine using Pandas analytical routines. Raw CSV row data is never uploaded or transferred to third-party language models.
                         </p>
                     </div>
                 </div>
@@ -880,7 +880,7 @@ async def generate_report(dataset_id: str, config: Optional[ReportConfig] = Body
         <header class="report-header">
             <div>
                 <div class="brand-pill">
-                    <span>⚡ DataLens AI</span>
+                    <span>⚡ DataLens</span>
                     <span>•</span>
                     <span>Local Analytics</span>
                 </div>
@@ -923,7 +923,7 @@ async def generate_report(dataset_id: str, config: Optional[ReportConfig] = Body
             updateThemeButton();
         }}
 
-        // Listen for postMessage from parent app (e.g. DataLens AI UI)
+        // Listen for postMessage from parent app (e.g. DataLens UI)
         window.addEventListener('message', function(event) {{
             if (event.data && event.data.type === 'SET_THEME') {{
                 document.documentElement.classList.remove('dark', 'light');

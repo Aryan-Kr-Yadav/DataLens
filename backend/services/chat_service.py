@@ -23,7 +23,7 @@ Dataset Metadata:
 - Total missing values: {missing_total}
 """
         
-        system_prompt = f"""You are DataLens AI. Answer the user's question about the dataset using ONLY the provided metadata. Keep it concise and natural.
+        system_prompt = f"""You are DataLens. Answer the user's question about the dataset using ONLY the provided metadata. Keep it concise and natural.
 {context}"""
         
         # We can just use the standard LLM completion for formatting the answer
@@ -38,7 +38,7 @@ Dataset Metadata:
     @staticmethod
     def handle_data_concept(question: str) -> str:
         llm = LLMService()
-        system_prompt = """You are DataLens AI, a data analysis assistant. Explain the data science or statistical concept asked by the user clearly and concisely. Respond in JSON format with a 'message' key."""
+        system_prompt = """You are DataLens, a data analysis assistant. Explain the data science or statistical concept asked by the user clearly and concisely. Respond in JSON format with a 'message' key."""
         try:
             res = llm.generate_json(system_prompt, question)
             return res.get("message", "I'm sorry, I couldn't explain that concept.")
@@ -48,7 +48,7 @@ Dataset Metadata:
     @staticmethod
     def handle_app_help(question: str) -> str:
         llm = LLMService()
-        system_prompt = """You are DataLens AI. Answer the user's question about how to use the DataLens application, its features, or its privacy model.
+        system_prompt = """You are DataLens. Answer the user's question about how to use the DataLens application, its features, or its privacy model.
 Key facts about DataLens:
 - Fully local execution using Pandas. The raw CSV is NEVER sent to any LLM.
 - Only the column schema is sent to Groq/LLM to generate a Pandas query.
@@ -63,9 +63,9 @@ Respond in JSON format with a 'message' key."""
     @staticmethod
     def handle_general_chat(question: str) -> str:
         llm = LLMService()
-        system_prompt = """You are DataLens AI, a helpful data analysis assistant. Respond to the user's greeting or general question politely. Keep it short. Inform them you can help analyze datasets. Respond in JSON format with a 'message' key."""
+        system_prompt = """You are DataLens, a helpful data analysis assistant. Respond to the user's greeting or general question politely. Keep it short. Inform them you can help analyze datasets. Respond in JSON format with a 'message' key."""
         try:
             res = llm.generate_json(system_prompt, question)
-            return res.get("message", "Hello! I am DataLens AI. How can I help you analyze your data today?")
+            return res.get("message", "Hello! I am DataLens. How can I help you analyze your data today?")
         except:
-            return "Hello! I am DataLens AI. I'm ready to help you analyze your dataset."
+            return "Hello! I am DataLens. I'm ready to help you analyze your dataset."
