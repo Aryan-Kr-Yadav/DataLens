@@ -1,7 +1,23 @@
 import os
 import json
-from groq import Groq
+import inspect
 from typing import Dict, Any, List
+import httpx
+
+# In httpx >= 0.28.0, 'proxies' was removed in favor of 'proxy'.
+# Older groq SDK versions (like 0.4.2) still pass 'proxies' into httpx.Client.
+# This defensive shim guarantees compatibility across any installed httpx version.
+_orig_httpx_client_init = httpx.Client.__init__
+if "proxies" not in inspect.signature(_orig_httpx_client_init).parameters:
+    def _patched_httpx_client_init(self, *args, **kwargs):
+        if "proxies" in kwargs:
+            p = kwargs.pop("proxies")
+            if p and "proxy" not in kwargs:
+                kwargs["proxy"] = p
+        return _orig_httpx_client_init(self, *args, **kwargs)
+    httpx.Client.__init__ = _patched_httpx_client_init
+
+from groq import Groq
 
 # ============================================================
 # LLM SERVICE
@@ -11,15 +27,14 @@ from typing import Dict, Any, List
 class LLMService:
     def __init__(self):
         self.api_key = os.getenv("GROQ_API_KEY") or "dummy_key_for_init"
-        self.base_url = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
+        self.base_url = os.getenv("GROQ_BASE_URL", "https://api.groq.com").rstrip("/")
+        if "api.groq.com" in self.base_url:
+            self.base_url = self.base_url.removesuffix("/openai/v1")
         self.model = os.getenv("GROQ_MODEL", "llama3-70b-8192") # default OSS model if not openai matching
-        
-        # We will use the OpenAI compatible endpoint via the Groq client if needed,
-        # but Groq python SDK defaults to their production API.
-        # We'll just initialize standard Groq SDK and override base URL if possible.
+
         self.client = Groq(
             api_key=self.api_key,
-            # base_url=self.base_url # some groq sdk versions may not support overriding base_url directly this way
+            base_url=self.base_url,
         )
 
     def generate_json(self, system_prompt: str, user_prompt: str) -> Dict[str, Any]:

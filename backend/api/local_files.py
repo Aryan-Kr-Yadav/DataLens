@@ -12,7 +12,14 @@ router = APIRouter()
 # This section never sends file contents to an external service.
 # ============================================================
 
-LOCAL_DATA_DIR = os.getenv("LOCAL_DATA_DIR", "./local_data")
+_BACKEND_DIR = Path(__file__).resolve().parent.parent
+_env_dir = os.getenv("LOCAL_DATA_DIR")
+if _env_dir:
+    _p = Path(_env_dir)
+    LOCAL_DATA_DIR = _p if _p.is_absolute() or _p.exists() else (_BACKEND_DIR / _p).resolve()
+else:
+    LOCAL_DATA_DIR = (_BACKEND_DIR / "local_data").resolve()
+
 
 class LoadLocalRequest(BaseModel):
     filename: str

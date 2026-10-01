@@ -68,8 +68,8 @@ export const api = {
     const res = await apiClient.get(`/api/datasets/${datasetId}/insights`);
     return res.data;
   },
-  generateReport: async (datasetId) => {
-    const res = await apiClient.post(`/api/datasets/${datasetId}/reports`);
+  generateReport: async (datasetId, config = {}) => {
+    const res = await apiClient.post(`/api/datasets/${datasetId}/reports`, config);
     return res.data;
   },
   deleteDataset: async (datasetId) => {
